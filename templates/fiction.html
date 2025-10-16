@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<link rel="icon" type="image/png" href="{{url_for('static', filename='images/confessions.com.png') }}"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <title>Confessions.com</title>
+    <link rel="manifest" href="static/manifest.json" />
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.png" />
+  </head>
+
+  <body>
+          {% include "partials/menu.html" %} 
+    <main>
+    <article>
+    <div class="container">
+          {% for row in content %}
+<div class="card">
+  <h1 class="card-name">{{ row[0] }}</h1> <!--name-->
+  <h1 class="card-author">By {{ row[1] }}</h1> <!--name-->
+  <p class="card-story">{{ row[4] }}</p> <!--story-->
+<!--  <p class="card-wordcount">Wordcount: {{ row[3] }}</p>  -->
+  <a class="card-link" href="{{ row[2] }}"> <button class="btn">Full Story</button></a> <!--link to page for story-->
+</div>
+{% endfor %}
+</div>    
+    </article> <!--Will include Story and Name-->
+    <aside></aside> <!--Will include Wordcount, Author, Class and Description-->
+    <footer></footer>
+    </main>
+    <script src="static/js/app.js"></script>
+  </body>
+</html>

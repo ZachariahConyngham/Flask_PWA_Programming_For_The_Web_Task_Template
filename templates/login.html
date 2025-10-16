@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<link rel="icon" type="image/png" href="{{url_for('static', filename='images/confessions.com.png') }}"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <title>Confessions.com</title>
+    <link rel="manifest" href="static/manifest.json" />
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.png" />
+  </head>
+
+  <body>
+          {% include "partials/menu.html" %} 
+    <main>
+
+    </main>
+    <div class="container">
+
+<div class="card">
+<h1 class="card-h1"> Log In</h1>
+<form method="POST">
+    <label for="unamelogin">Username:</label>    
+    <input type="text" id="Unamelogin" name="Uname"><br><br>
+    <label for="ename">Email:</label>
+    <input type="text" id="Enamelogin" name="Ename"><br><br>
+    <label for="pname">Password:</label>
+    <input type="text" id="Pnamelogin" name="Pname"><br><br>
+    <input type="submit" value="Submit">
+</form>
+</div> <!--placeholder="jim"-->
+
+<div class="card">
+<h1 class="card-h1"> Sign Up </h1>
+<form action="/login" method="POST" id="signupForm">
+    <label for="uname">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="ename">Email:</label>
+    <input type="text" id="email" type="email" name="ename" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+    placeholder="name@example.com" required><br><br>
+    <label for="pname">Password:</label>
+    <input type="text" id="password" name="pname" required><br><br>
+    <label for="Gname">Gender:</label>
+    <input list="geender" id="Gender" name="Gname" required>
+    <datalist id="geender">
+    <label for="Gname">Gender</label>
+        <option value="Male">
+        <option value="Female">
+        <option value="Non-binary">
+        <option value="Agender">
+        <option value="Polygender">
+        <option value="Genderfluid">
+        <option value="Not Listed">
+    </datalist>
+    <input class="toes" type="submit" value="Submit">
+</form>
+
+<script src="script.js">
+    
+</script>
+
+
+
+<!-- <script>
+    function Enter() {
+            signupForm.addEventListener('submit', function (event) {
+                if (username.value.length <= 16 && username.value.length >= 3 && atest.test(email.value) && !spatest.test(username.value) && password.value.length >= 8 && numtest.test(password.value) && captest.test(password.value) && password.value === cpassword.value && password.value !== "") {
+                    window.location.href = "login";
+                } else {
+                    event.preventDefault();
+                }
+            });
+        }
+</script>
+-->
+
+<!--    <script>
+        const data = {{ content | tojson | safe }};
+        function Enter() {
+            if (username.value == "" || email.value == "") {
+                inc.textContent = "Missing username or email";
+            } else {
+                for (let i = 0; i <= data.length - 1; i++) {
+                    if (username.value.trim() != data[i][0] && email.value.trim() != data[i][2]) {
+                        inc.textContent = "Incorrect username or password";
+                    } else {
+                        const outerIndex = data.findIndex(inner => inner.includes(username.value));
+                        if (password.value != data[outerIndex][1]) {
+                            inc.textContent = "Incorrect username or password";
+                        } else {
+                            inc.textContent = "";
+                            window.location.href = "top_crimes";
+                        }
+                    }
+                }
+            }
+        }
+        enter.onclick = Enter;
+    </script>
+-->
+
+</div>
+    </div>
+
+    {% for row in content %}
+    {% endfor %}
+    <script src="static/js/app.js"></script>
+  </body>
+</html>

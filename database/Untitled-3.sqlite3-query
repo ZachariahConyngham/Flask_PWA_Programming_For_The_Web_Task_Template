@@ -1,0 +1,30 @@
+-- database: ./data_source.db
+
+SELECT * FROM Story;
+CREATE TABLE extension(extID INTEGER NOT NULL PRIMARY KEY,name TEXT NOT NULL, hyperlink TEXT NOT NULL,about TEXT NOT NULL,image TEXT NOT NULL,language TEXT NOT NULL);
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (1,"Live Server","https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer","Launch a development local Server with live reload feature for static & dynamic pages","https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.9/1661914858952/Microsoft.VisualStudio.Services.Icons.Default","HTML CSS JS");
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (2,"Render CR LF","https://marketplace.visualstudio.com/items?itemName=medo64.render-crlf","Displays the line ending symbol and optionally extra whitespace when 'Render whitespace' is turned on.","https://medo64.gallerycdn.vsassets.io/extensions/medo64/render-crlf/1.7.1/1689315206970/Microsoft.VisualStudio.Services.Icons.Default","#BASH");
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (3,"Start GIT BASH","https://marketplace.visualstudio.com/items?itemName=McCarter.start-git-bash","Adds a bash command to VSCode that allows you to start git-bash in the current workspace's root folder.","https://mccarter.gallerycdn.vsassets.io/extensions/mccarter/start-git-bash/1.2.1/1499505567572/Microsoft.VisualStudio.Services.Icons.Default","#BASH");
+INSERT INTO extension(extID,name,hyperlink,about,image,language) VALUES (4,"SQLite3 Editor","https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor","Edit SQLite3 files like you would in spreadsheet applications.","https://yy0931.gallerycdn.vsassets.io/extensions/yy0931/vscode-sqlite3-editor/1.0.85/1690893830873/Microsoft.VisualStudio.Services.Icons.Default","SQL");
+SELECT * FROM extension;
+SELECT * FROM extension WHERE language LIKE '#BASH';
+INSERT INTO Story(extID,name,class,wordcount,rating,pageperuser,author,story) VALUES (1,"The Plane that never lands","fiction",1290,4.9,13,"arj","I wish this plane would land");
+INSERT INTO Story(extID,name,class,wordcount,rating,pageperuser,author,story) VALUES (2,"Peak","fiction",1370,4.3,9,"craab","peak is peak");
+INSERT INTO Story(extID,name,class,wordcount,rating,pageperuser,author,story) VALUES (3,"CAmeramelon","non-fiction",312,4.8,4,"Cam","peak is peak");
+SELECT * FROM Story;
+SELECT * FROM Story WHERE class LIKE 'fiction';
+SELECT wordcount, storyID FROM Story WHERE class LIKE 'fiction' AND rating LIKE '4.9';
+SELECT DISTINCT rating,author FROM Story WHERE class LIKE 'fiction';
+SELECT * FROM Story;
+INSERT INTO userdata(userID,username,email,password) VALUES(4,'arj','a.rj@gmail.com','password4');
+INSERT INTO userdata(userID,username,email,password) VALUES(5,'craab','craa.b@gmail.com','password5');
+INSERT INTO userdata(userID,username,email,password) VALUES(6,'Cam','cam.gugl@gmail.com','password6');
+INSERT INTO Story SELECT * FROM mockdata5;
+SELECT * FROM Story WHERE userID LIKE '1';
+SELECT name FROM Story;
+SELECT * FROM Story;
+SELECT * FROM Story WHERE class LIKE 'fiction' AND rating LIKE '4.9';
+INSERT INTO userdata (likedclass) SELECT likedclass FROM likedclass;
+SELECT likedclass FROM userdata; 
+SELECT name,author FROM Story WHERE userID LIKE '4';
+SELECT name,author FROM Story WHERE rating LIKE '4.9';

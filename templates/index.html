@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} {% block content %}
+    <article>
+    <div class="container">
+    {% for row in content %}
+<div class="card">
+  <h1 class="card-name">{{ row[0] }}</h1> <!--name-->
+  <h1 class="card-author">By {{ row[1] }}</h1> <!--name-->
+  <p class="card-story">{{ row[4] }}</p> <!--story-->
+<!--  <p class="card-wordcount">Wordcount: {{ row[3] }}</p>  -->
+  <a class="card-link" href="{{ row[2] }}"> <button class="btn">More Like This</button></a> <!--link to page for story-->
+</div>
+{% endfor %}
+</div>    
+    </article> <!--Will include Story and Name-->
+    <aside></aside> <!--Will include Wordcount, Author, Class and Description-->
+    <footer></footer>
+{% endblock %}

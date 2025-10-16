@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<link rel="icon" type="image/png" href="{{url_for('static', filename='images/confessions.com.png') }}"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <title>Confessions.com</title>
+    <link rel="manifest" href="static/manifest.json" />
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.png" />
+  </head>
+
+  <body>
+      {% include "partials/menu.html" %} 
+    <main>
+
+
+<div class="card">
+    <h1 class="card-h1">A New Story</h1>
+<form method="POST">
+    <label for="Sname">Story Name:</label><br>
+    <input type="text" id="Sname" name="Sname"><br>
+    <label for="fname">Fiction or Non-fiction: </label> <br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="Aname">Author Name:</label><br>
+    <input type="text" id="Aname" name="Aname"><br>
+    <label for="Story">Story</label><br>
+    <input type="text" id="Story" name="Story"><br><br>
+
+
+    
+
+  <input type="submit" value="Submit">
+</form>
+</div>
+
+<h2>   </h2>
+
+<h1 class="card">Your Stories</h1>
+    <article>
+    <div class="container">
+    {% for row in content %}
+<div class="card">
+  <h1 class="card-name">{{ row[0] }}</h1> <!--name-->
+    <p class="card-author">{{ row[5] }}</p> <!--story-->
+    <p class="card-story">Rating: {{ row[3] }}</p> <!--rating-->
+    <p class="card-story">Average Pages per User: {{ row[4] }}</p> <!--pageperuser-->
+    <h1 class="card-story">{{ row[1] }}</h1> <!--class-->
+</div>
+{% endfor %}
+</div>    
+
+    </article> <!--Will include Story and Name-->
+    <aside></aside> <!--Will include Wordcount, Author, Class and Description-->
+    <footer></footer>
+    </main>
+    <script src="static/js/app.js"></script>
+  </body>
+</html>
